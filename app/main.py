@@ -7,9 +7,7 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 #                                                        change below if address differs
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://ovizxqphegguzs" \
-                                        ":c55b21b95c83814fb811e6f58e1eb8c876b11bce22ec5f53f640b201a75a6849@ec2-99-80" \
-                                        "-170-190.eu-west-1.compute.amazonaws.com:5432/d4poogetisskjb"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://ovizxqphegguzs:c55b21b95c83814fb811e6f58e1eb8c876b11bce22ec5f53f640b201a75a6849@ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/d4poogetisskjb"
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app)
 
@@ -18,7 +16,7 @@ migrate = Migrate(app, db)
 
 
 class TablesModel(db.Model):
-    __tablename__ = 'Tables'
+    __tablename__ = 'tables'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
