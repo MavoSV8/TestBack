@@ -7,7 +7,9 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 #                                                        change below if address differs
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:admin@localhost:5432/postgres"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://ovizxqphegguzs" \
+                                        ":c55b21b95c83814fb811e6f58e1eb8c876b11bce22ec5f53f640b201a75a6849@ec2-99-80" \
+                                        "-170-190.eu-west-1.compute.amazonaws.com:5432/d4poogetisskjb"
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app)
 
@@ -42,7 +44,6 @@ def get_tables():
             {
                 "id": table.id,
                 "name": table.name,
-            } for table in tables ]
+            } for table in tables]
 
         return json.dumps(results)
-
